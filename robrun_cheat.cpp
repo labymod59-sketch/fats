@@ -9,6 +9,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <vector>
 #include "offsets.hpp"
 
 static const wchar_t* TARGET_EXE  = L"RobRun.exe";     // FILL: exe name if different
@@ -141,8 +142,6 @@ static bool camera(V3& pos, V3& fw, V3& rt, V3& up) {
     return rd(cam + RR_OFF_CAM_POS, pos) && rd(cam + RR_OFF_CAM_FWD, fw)
         && rd(cam + RR_OFF_CAM_RIGHT, rt) && rd(cam + RR_OFF_CAM_UP, up);
 }
-
-static std::vector<Target> read_targets();  // defined below
 
 static std::vector<Target> read_targets() {
     std::vector<Target> out;
@@ -539,7 +538,7 @@ static HWND make_menu(HINSTANCE hi) {
     wc.lpfnWndProc   = menu_proc;
     wc.hInstance     = hi;
     wc.lpszClassName = L"rrmenu";
-    wc.hCursor       = LoadCursorW(nullptr, IDC_ARROW);
+    wc.hCursor       = LoadCursorW(nullptr, MAKEINTRESOURCEW(32512));
     RegisterClassW(&wc);
     return CreateWindowExW(WS_EX_TOPMOST | WS_EX_TOOLWINDOW, L"rrmenu", L"robrun", WS_POPUP,
                            40, 40, MENU_W, MENU_H, nullptr, nullptr, hi, nullptr);
