@@ -12,7 +12,7 @@
 #include <vector>
 #include "offsets.hpp"
 
-static const wchar_t* TARGET_EXE  = L"RobRun.exe";     // FILL: exe name if different
+static const wchar_t* TARGET_EXE  = L"ROB RUN.exe";     // FILL: exe name if different
 static const wchar_t* GA_NAME     = L"GameAssembly.dll";
 static const float    FOV_DEG     = 90.0f;             // FILL: real camera fov
 static const float    PI_F        = 3.14159265f;
